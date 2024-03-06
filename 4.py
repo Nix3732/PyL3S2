@@ -1,10 +1,13 @@
-n = int(input())
-m = [str(input()) for i in range(n)]
+m = str(input()).split()
+data = {}
 c = 0
-f = []
-for i in range(len(m)-1):
-    for j in range(i+1, len(m)):
-        if i == j:
-            c += 1
-    f.append(c)
-print(f)
+for i in m:
+    if i not in data:
+        data[i] = [c, 1]
+        c+=1
+    else:
+        data[i][1] += 1
+answer = []
+for i in data:
+    answer.append(data[i][1])
+print(*answer)
